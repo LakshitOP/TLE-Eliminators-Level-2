@@ -26,21 +26,24 @@ const int INFM = 1e9;         // A large value (infinity) for int
 
 /**
  * @brief Solves a single test case.
- */
+ */tr
 void solve() {
     int n,q;
     cin >> n >> q;
     vll arr(n);
-    for(auto &x : arr) cin >> x;
-    vll prefixSum(n+1, 0);
-    for(int i=1;i<=n;i++){
-        prefixSum[i] = prefixSum[i-1] + arr[i-1];
+    for(int i=0; i<n; i++){
+        cin >> arr[i];
     }
     while(q--){
         int a,b;
-        cin >> a>> b;
-        cout << prefixSum[b] - prefixSum[a-1] << endl;
+        cin >> a >> b;
+        ll sum = 0;
+        for(int i=a-1; i<=b-1; i++){
+            sum += arr[i];
+        }
+        cout << sum << "\n";
     }
+
 }
 
 /**
